@@ -1,0 +1,11 @@
+# dsh-search：全局检索（会话标题 / 全部聊天记录 / 长期记忆）。
+# 安装：dsh plugin --profile web add /Users/mac/dsh-hardening/plugins-src/dsh-search
+- insert:
+    - id: dsh-search
+      name: dsh-search
+      config:
+        # 工作区文件默认不索引：用户要的是标题与聊天记录，那部分已在会话语料里。
+        includeFiles: false
+        # 启动后 20 秒做一次增量索引（避开启动高峰），之后每 30 分钟一次。
+        autoIndexDelayMs: 20000
+        autoIndexIntervalMs: 1800000

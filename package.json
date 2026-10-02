@@ -1,0 +1,54 @@
+{
+  "name": "dsh-search",
+  "version": "0.1.0",
+  "description": "全局检索：在整个 DSH 里搜关键词——会话标题与全部聊天记录、长期记忆、可选工作区文件。Host 侧 SQLite FTS5 增量索引 + 模型工具 + Web 面板。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "search",
+    "full-text-search",
+    "sqlite-fts5"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windy-0-0/dsh-search.git"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "dshClient": {
+    "platform": "web",
+    "inject": [
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-ui-sidebar"
+    ]
+  },
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "peerDependencies": {
+    "cordis": "*"
+  },
+  "license": "MIT"
+}
